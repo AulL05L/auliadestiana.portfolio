@@ -56,52 +56,7 @@
         transform: scaleX(1);
       }
 
-      .hamburger-menu {
-        display: none; /* Initially hide the hamburger menu */
-        cursor: pointer;
-      }
-
-      .hamburger-menu > span {
-        display: block;
-        width: 28px;
-        height: 2px;
-        border-radius: 9999px;
-        background-color: #fff;
-        margin-right: 9px;
-      }
-
-      .hamburger-menu > span:not(:last-child) {
-        margin-bottom: 7px;
-      }
-
-      .hamburger-menu,
-      .hamburger-menu > span {
-        transition: all 0.4s ease-in-out;
-      }
-
-      .hamburger-menu.active {
-        transition-delay: 0.8s;
-        transform: rotate(45deg);
-      }
-
-      .hamburger-menu.active > span:nth-child(2) {
-        width: 0;
-        margin-top: 5px;
-      }
-
-      .hamburger-menu.active > span:nth-child(1),
-      .hamburger-menu.active > span:nth-child(3) {
-        transition-delay: 0.4s;
-      }
-
-      .hamburger-menu.active > span:nth-child(1) {
-        transform: translateY(9px);
-      }
-
-      .hamburger-menu.active > span:nth-child(3) {
-        transform: translateY(-9px) rotate(90deg);
-      }
-
+      
       .nav-links.hidden {
         display: none; /* Default state: hide nav-links on mobile */
       }
@@ -154,9 +109,9 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="items-center">
+        <nav class="items-center relative">
           <ul
-            class="nav-links flex items-center gap-1 relative font-medium py-2"
+            class="nav-links hidden md:flex items-center gap-1 relative font-medium py-2"
           >
             <li>
               <a href="#home" class="link font-serif font-semibold">Home</a>
@@ -175,11 +130,25 @@
           </ul>
 
           <!-- Hamburger Menu -->
-          <div class="hamburger-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
+          <button
+            id="menu-toggle"
+            class="flex md:hidden items-center p-2 text-gray-50 hover:text-gray-900 focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
         </nav>
 
         <!-- Mobile Navigation -->
@@ -214,6 +183,16 @@
     </header>
     <!-- Header End -->
 
+    <!-- JavaScript for toggling the mobile menu -->
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
     <!-- Hero Start -->
     <section id="home" class="pt-[90px] lg:py-[70px] overflow-x-auto">
       <div class="lg:flex lg:justify-between">
@@ -236,15 +215,15 @@
           </p>
           <div class="flex gap-3 mt-[-20px] text-white">
             <a href="https://www.instagram.com/auliadestiana__/" target="_blank"
-              ><i class="fa-brands fa-square-instagram text-xl"></i
+              ><i class="fab fa-instagram text-l"></i
             ></a>
             <a href="https://twitter.com/auliadestiana_" target="_blank"
-              ><i class="fa-brands fa-x-twitter text-lg"></i
+              ><i class="fab fa-whatsapp text-l"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/aulia-destiana-putri-751027304/"
               target="_blank"
-              ><i class="fa-brands fa-linkedin text-lg"></i
+              ><i class="fa-brands fa-linkedin text-l"></i
             ></a>
             <p class="font-light text-sm">| Social Media</p>
           </div>
