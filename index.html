@@ -8,30 +8,170 @@
       name="description"
       content="Aulia Destiana, Information Systems Student from Budi Luhur, exploring IT and technology."
     />
-    <link rel="stylesheet" href="./dist/output.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #141414;
+      }
+
+      /* CSS HEADER START */
+      .link {
+        text-decoration: none;
+        color: #fff;
+        font-size: 12px;
+        padding: 0.5rem;
+        position: relative;
+        margin-right: 45px;
+      }
+
+      .link:hover {
+        color: #3d3a30;
+      }
+
+      .link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #3d3a30;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transition: all 0.6s ease;
+      }
+
+      .link:hover::before {
+        transform: scaleX(1);
+      }
+
+      .hamburger-menu {
+        display: none; /* Initially hide the hamburger menu */
+        cursor: pointer;
+      }
+
+      .hamburger-menu > span {
+        display: block;
+        width: 28px;
+        height: 2px;
+        border-radius: 9999px;
+        background-color: #fff;
+        margin-right: 9px;
+      }
+
+      .hamburger-menu > span:not(:last-child) {
+        margin-bottom: 7px;
+      }
+
+      .hamburger-menu,
+      .hamburger-menu > span {
+        transition: all 0.4s ease-in-out;
+      }
+
+      .hamburger-menu.active {
+        transition-delay: 0.8s;
+        transform: rotate(45deg);
+      }
+
+      .hamburger-menu.active > span:nth-child(2) {
+        width: 0;
+        margin-top: 5px;
+      }
+
+      .hamburger-menu.active > span:nth-child(1),
+      .hamburger-menu.active > span:nth-child(3) {
+        transition-delay: 0.4s;
+      }
+
+      .hamburger-menu.active > span:nth-child(1) {
+        transform: translateY(9px);
+      }
+
+      .hamburger-menu.active > span:nth-child(3) {
+        transform: translateY(-9px) rotate(90deg);
+      }
+
+      .nav-links.hidden {
+        display: none; /* Default state: hide nav-links on mobile */
+      }
+
+      .hamburger-menu.active + .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 20px;
+      }
+
+      /* Media query for smaller screens */
+      @media screen and (max-width: 668px) {
+        .link {
+          display: none; /* Hide the nav links */
+        }
+
+        .hamburger-menu {
+          display: block; /* Show the hamburger menu */
+        }
+
+        /* Hide text in nav-bar */
+        .nav-links li {
+          display: none;
+        }
+
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-links.hidden {
+          display: none;
+        }
+      }
+
+      /* CSS HEADER END */
+    </style>
   </head>
   <body>
     <!-- Header Start -->
-    <header class="bg-charcoal w-full z-10 shadow-md fixed">
+    <header class="bg-[#141414] w-full z-10 shadow-md fixed">
       <div class="lg:flex flex py-[10px] justify-between overflow-hidden">
         <!-- Logo -->
-        <div class="px-3 ml-8">
-          <a href="#home" class="font-bold text-lg text-jungle"
+        <div class="px-1 ml-8">
+          <a href="#home" class="font-bold text-lg text-[#3d3a30]"
             >auliadestiana.</a
           >
         </div>
 
         <!-- Navbar -->
         <nav class="items-center">
-          <ul class="nav-links flex items-center gap-1 relative font-medium">
-            <li><a href="#home" class="link">Home</a></li>
-            <li><a href="#about" class="link">About</a></li>
-            <li><a href="#skills" class="link">Skills</a></li>
-            <li><a href="#projects" class="link">Projects</a></li>
+          <ul
+            class="nav-links flex items-center gap-1 relative font-medium py-2"
+          >
+            <li>
+              <a href="#home" class="link font-serif font-semibold">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="link font-serif font-semibold">About</a>
+            </li>
+            <li>
+              <a href="#skills" class="link font-serif font-semibold">Skills</a>
+            </li>
+            <li>
+              <a href="#projects" class="link font-serif font-semibold"
+                >Projects</a
+              >
+            </li>
           </ul>
 
           <!-- Hamburger Menu -->
@@ -45,25 +185,27 @@
         <!-- Mobile Navigation -->
         <div
           id="mobile-menu"
-          class="fixed w-full items-center justify-center md:hidden hidden bg-gradient-to-t from-jungle to-[#141414] py-7 mt-8 z-10"
+          class="fixed w-full items-center justify-center md:hidden hidden bg-gradient-to-t from-[#3d3a30] to-[#141414] py-7 mt-8 z-10"
         >
           <nav class="flex flex-col items-center space-y-4">
-            <a href="#home" class="text-cream hover:text-gray-300 font-semibold"
+            <a
+              href="#home"
+              class="text-[#bfa891] hover:text-gray-300 font-serif"
               >Home</a
             >
             <a
               href="#about"
-              class="text-cream hover:text-gray-300 font-semibold"
+              class="text-[#bfa891] hover:text-gray-300 font-serif"
               >About</a
             >
             <a
               href="#skills"
-              class="text-cream hover:text-gray-300 font-semibold"
+              class="text-[#bfa891] hover:text-gray-300 font-serif"
               >Skills</a
             >
             <a
               href="#projects"
-              class="text-cream hover:text-gray-300 font-semibold"
+              class="text-[#bfa891] hover:text-gray-300 font-serif"
               >Projects</a
             >
           </nav>
@@ -77,14 +219,15 @@
       <div class="lg:flex lg:justify-between">
         <!-- Deskripsi Nama & Biodata -->
         <div class="lg:w-1/2 self-center px-4 lg:ml-16">
-          <h1 class="font-thin text-dove">
+          <h1 class="font-thin text-[#e0d1bf]">
             Hallo I'm,<br />
-            <span class="font-semibold text-4xl text-dove lg:pb-3"
+            <span class="font-semibold text-4xl text-[#e0d1bf] lg:pb-3"
               >Aulia Destiana</span
             >
           </h1>
           <h2 class="font-light text-white">
-            An <span class="text-terraC">Information Systems Student</span> from
+            An
+            <span class="text-[#803407]">Information Systems Student</span> from
             <span class="text-gray-600">Budi Luhur</span>
           </h2>
           <p class="font-extralight text-gray-300 leading-relaxed mt-5 mb-10">
@@ -118,201 +261,189 @@
     </section>
     <!-- Hero End -->
 
-    <!-- About Start -->
+    <!-- About Me Section -->
     <section
       id="about"
-      class="bg-gradient-to-t from-terraC to-[#141414] overflow-x-auto"
+      style="
+        background-image: url('dist/img/img-bg/about.jpg');
+        backdrop-filter: blur(50px);
+        background-repeat: no-repeat;
+        background-size: cover;
+      "
+      class="py-16 px-8 lg:flex lg:items-start lg:gap-10 lg:px-32 bg-white"
     >
-      <h1
-        class="font-semibold text-2xl text-white text-center py-4 mt-5 lg:mt-10 lg:pb-8"
-      >
-        About <span class="text-cream">Me</span>
-      </h1>
-      <div
-        class="px-4 self-center lg:flex lg:justify-between lg:space-x-4 lg:mb-5 lg:mt-8 lg:py-8"
-      >
-        <div class="border border-gray-400 rounded-lg p-4">
-          <p
-            class="font-normal text-cream leading-relaxed mt-5 pb-5 text-justify"
-          >
-            Hi, I'm <span class="text-xl">Aulia Destiana</span>, a
-            third-semester Information Systems student with a
-            <span class="bg-neutral-700 p-1"
-              >passion for coding and martial arts.</span
-            >
-            I'm constantly working on improving my skills, both in software
-            development and as a pencak silat athlete.
-            <span class="bg-neutral-950 p-1"
-              >I'm an active participant in various silat competitions</span
-            >, and I'm also a member of my university's silat organization.
-          </p>
-        </div>
-
-        <div class="border border-gray-400 rounded-lg p-4 mt-5 lg:mt-0">
-          <p
-            class="font-normal text-cream leading-relaxed mt-5 pb-5 text-justify"
-          >
-            Currently, I'm focusing on building my portfolio in software
-            development, working with tools like Tailwind CSS. I love
-            <span class="bg-slate-700 p-1">learning new technologies</span> and
-            finding creative solutions through programming. Whether it's on the
-            mat or in front of a computer,
-            <span class="bg-pink-950 p-1"
-              >I'm always striving to push my limits and achieve
-              excellence.</span
-            >
-          </p>
-        </div>
+      <!-- Icon Decorations -->
+      <div class="hidden lg:flex flex-col items-center gap-5">
+        <i class="fas fa-star text-6xl text-[#803407]"></i>
+        <i class="fas fa-circle text-4xl text-[#803407]"></i>
       </div>
-      <div class="text-center text-5xl py-3 mt-5 lg:mt-4 lg:pb-9">
-        <i class="fa-solid fa-code px-3 lg:px-12"></i>
-        <i class="fa-solid fa-laptop-code px-3 lg:px-12"></i>
-        <i class="fa-solid fa-terminal px-3 lg:px-12"></i>
-        <i class="fa-regular fa-file-code px-3 lg:px-12"></i>
-      </div>
-      <hr class="border-black lg:pt-8" />
-      <p
-        class="text-center font-thin text-sm lg:mb-3 bg-gradient-to-r from-yellow-300 to-[#333333] bg-clip-text text-transparent"
-      >
-        Qoute of the day
-      </p>
-      <div class="text-center font-bold text-cream py-1 lg:py-2 lg:pb-6">
-        <h1>"Just because it's hard, doesn't mean it's impossible."</h1>
-        <p>- YOU CAN DO IT! -</p>
-      </div>
-    </section>
-    <!-- About End -->
 
-    <!-- Skills Start -->
-    <section id="skills" class="overflow-x-auto">
-      <div class="py-4 self-center">
-        <h1 class="font-semibold text-2xl text-white text-center pt-3 lg:mt-10">
-          My <span class="text-cream">Skills</span>
-        </h1>
-        <div class="text-center text-5xl px-2 mt-5 lg:px-72">
-          <div class="">
-            <!--HTML-->
-            <h1
-              class="font-light text-2xl text-terraC py-3 border border-gray-400 rounded-lg p-4 mb-5"
-            >
-              HTML
-              <p class="text-sm text-white font-thin">
-                I have a basic understanding of HTML. I can use it to create the
-                structure of a webpage, but I'm still learning to make my code
-                cleaner and more organized. Sometimes I ask for help from
-                friends or AI to improve my work.
-              </p>
-            </h1>
-
-            <!--CSS-->
-            <h1
-              class="font-light text-2xl text-cream py-3 border border-gray-400 rounded-lg p-4 mb-5"
-            >
-              CSS
-              <p class="text-sm text-white font-thin">
-                I know how to style websites using CSS, and I can make simple
-                designs. While I can handle responsive layouts and basic
-                styling, I often seek guidance to create more advanced designs
-                or fix tricky layout issues.
-              </p>
-            </h1>
-
-            <!--PHP-->
-            <h1
-              class="font-light text-2xl text-terraC py-3 border border-gray-400 rounded-lg p-4 mb-5"
-            >
-              PHP
-              <p class="text-sm text-white font-thin">
-                I'm familiar with PHP and can use it for simple backend tasks,
-                like connecting to databases or processing forms. However, I'm
-                still in the learning phase and rely on support when I encounter
-                more complex problems.
-              </p>
-            </h1>
-
-            <!--Javascript-->
-            <h1
-              class="font-light text-2xl text-cream py-3 border border-gray-400 rounded-lg p-4 mb-5"
-            >
-              Javascript
-              <p class="text-sm text-white font-thin">
-                I can use JavaScript to add interactivity to web pages, but I'm
-                not yet fully confident. I can handle basic functions, but for
-                more advanced features, I usually ask for help or look up
-                solutions.
-              </p>
-            </h1>
-
-            <!--Tailwind-->
-            <h1
-              class="font-light text-2xl text-terraC py-3 border border-gray-400 rounded-lg p-4 mb-5"
-            >
-              Tailwind
-              <p class="text-sm text-white font-thin">
-                I've started using Tailwind CSS and find it helpful for speeding
-                up my design process. I can use it to create simple,
-                modern-looking layouts, but I'm still getting used to all its
-                features.
-              </p>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Skills End -->
-
-    <!-- Projects Start -->
-    <section id="projects" class="overflow-x-auto">
-      <div class="py-5 mb-16">
+      <!-- About Content -->
+      <div>
         <h1
-          class="font-semibold text-2xl text-white text-center py-4 lg:mt-8 lg:pb-8"
+          class="text-xl font-bold text-[#3d3a30] bg-gradient-to-b from-[#803407] to-[#bfa891] bg-clip-text text-transparent"
         >
-          My <span class="text-cream">Projects</span>
+          ABOUT ME
         </h1>
-
+        <hr class="border-2 border-[#803407]" />
         <div
-          class="container py-9 lg:p-3 mx-auto bg-gradient-to-b from-cream to-[#141414] rounded-sm"
+          class="bg-slate-100 shadow-lg p-6 rounded-lg max-w-lg mx-auto mt-6"
         >
-          <div class="flex overflow-x-scroll">
-            <div class="px-6 lg:px-3">
-              <img src="./dist/img/img-projects/project-1.png" alt="" />
-              <h1 class="text-center font-bold text-xl mt-5 text-cream">
-                Web Portofolio Personal
-              </h1>
+          <p class="text-lg font-normal">
+            I am Aulia, a web developer focused on creating modern, minimalist,
+            and elegant user interfaces. With experience in HTML, CSS, and
+            JavaScript, I am committed to delivering high-performance and
+            visually appealing web solutions.
+          </p>
+        </div>
+
+        <!-- Education Section -->
+        <div class="mt-10">
+          <h2 class="text-2xl font-semibold text-[#803407]">Edukasi</h2>
+          <hr class="border-2 border-[#803407]" />
+          <div class="flex justify-between mt-4">
+            <div class="pr-2">
+              <p class="text-lg font-bold text-[#141414]">2024</p>
+              <a
+                class="mt-3 text-lg font-bold bg-gradient-to-r from-[#803407] to-[#141414] bg-clip-text text-transparent"
+                >Universitas Budi Luhur</a
+              >
+              <p class="mt-3 border-b-4 border-t-4 p-1 rounded-lg">
+                Sistem Informasi
+              </p>
+            </div>
+            <div class="flex flex-col gap-4 pr-2">
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span>Jakarta, Indonesia</span>
+              </div>
             </div>
           </div>
-
-          <p class="text-center font-bold text-xs mt-5 text-white">
-            Stay tune for up coming projects !!!
-          </p>
         </div>
       </div>
     </section>
-    <!-- Projects End -->
 
-    <!-- Footer Start -->
-    <footer
-      class="bg-gradient-to-t from-terraC to-[#141414] text-gray-300 py-8"
-    >
-      <div class="container mx-auto flex flex-col items-center">
-        <p class="text-sm">© 2024 Aulia Destiana. All Rights Reserved.</p>
+    <hr class="border-2 border-[#141414]" />
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-8 lg:px-32 bg-white">
+      <h2 class="text-3xl font-semibold text-[#803407] mb-6">Skills</h2>
+      <ul class="flex flex-wrap gap-6">
+        <li class="flex items-center text-lg">
+          <i class="fab fa-html5 text-3xl text-[#141414] mr-2"></i> HTML
+        </li>
+        <li class="flex items-center text-lg">
+          <i class="fab fa-css3-alt text-3xl text-[#141414] mr-2"></i> CSS
+        </li>
+        <li class="flex items-center text-lg">
+          <i class="fab fa-js-square text-3xl text-[#141414] mr-2"></i>
+          JavaScript
+        </li>
+        <li class="flex items-center text-lg">
+          <i class="fab fa-php text-3xl text-[#141414] mr-2"></i> PHP
+        </li>
+        <li class="flex items-center text-lg">
+          <i class="fab fa-css3-alt text-3xl text-[#141414] mr-2"></i> Tailwind
+          CSS
+        </li>
+      </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-8 lg:px-32">
+      <h2 class="text-3xl font-semibold text-[#803407] mb-6">Projects</h2>
+      <div class="grid gap-6 lg:flex lg:gap-6 overflow-x-auto">
+        <!-- Project 1 -->
+        <div class="relative w-full lg:w-80">
+          <img
+            src="dist/img/project1.png"
+            alt="Project 1"
+            class="w-full h-48 object-cover rounded-lg shadow-md border-2 border-custom"
+          />
+          <a
+            href="https://aull05l.github.io/auliadestiana.portfolio/"
+            class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-lg font-semibold opacity-0 hover:opacity-100 transition-opacity"
+            >View Project</a
+          >
+        </div>
+        <!-- Project 2 -->
+        <div class="relative w-full lg:w-80">
+          <img
+            src="dist/img/project2.png"
+            alt="Project 2"
+            class="w-full h-48 object-cover rounded-lg shadow-md border-2 border-custom"
+          />
+          <a
+            href="https://pencak-silat-ubl.web.app/"
+            class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-lg font-semibold opacity-0 hover:opacity-100 transition-opacity"
+            >View Project</a
+          >
+        </div>
+        <!-- Project 3 -->
+        <div class="relative w-full lg:w-80">
+          <img
+            src="dist/img/project3.png"
+            alt="Project 3"
+            class="w-full h-48 object-cover rounded-lg shadow-md border-2 border-custom"
+          />
+          <a
+            href="https://star-jasmani.web.app/"
+            class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-lg font-semibold opacity-0 hover:opacity-100 transition-opacity"
+            >View Project</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="bg-neutral-950 text-white py-2">
+      <div class="container mx-auto px-4 lg:px-20">
+        <!-- Social Media Links -->
+        <div class="flex justify-center mt-8 space-x-4">
+          <a
+            href="https://wa.me/+6282210539614"
+            target="_blank"
+            class="hover:text-[#e0d1bf]"
+          >
+            <i class="fab fa-whatsapp text-xl"></i>
+          </a>
+          <a
+            href="https://instagram.com/aulia"
+            target="_blank"
+            class="hover:text-[#e0d1bf]"
+          >
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/aulia"
+            target="_blank"
+            class="hover:text-[#e0d1bf]"
+          >
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/aulia"
+            target="_blank"
+            class="hover:text-[#e0d1bf]"
+          >
+            <i class="fa fa-envelope text-xl"></i>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center mt-8 text-sm text-gray-400">
+          © 2024 Aulia. All Rights Reserved.
+        </div>
       </div>
     </footer>
 
-    <!-- Footer End -->
-
-    <!-- Script Start -->
     <script>
       const hamburgerMenu = document.querySelector(".hamburger-menu");
-      const navLinks = document.querySelector(".nav-links");
       const mobileMenu = document.getElementById("mobile-menu");
 
       hamburgerMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("hidden");
         hamburgerMenu.classList.toggle("active");
         mobileMenu.classList.toggle("hidden");
       });
     </script>
-    <!-- Script End -->
   </body>
 </html>
