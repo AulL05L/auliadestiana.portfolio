@@ -147,16 +147,16 @@
     <header class="bg-[#141414] w-full z-10 shadow-md fixed">
       <div class="lg:flex flex py-[10px] justify-between overflow-hidden">
         <!-- Logo -->
-        <div class="px-1 ml-8 pt-2">
+        <div class="px-1 ml-8">
           <a href="#home" class="font-bold text-lg text-[#3d3a30]"
             >auliadestiana.</a
           >
         </div>
 
         <!-- Navbar -->
-        <nav class="items-center relative">
+        <nav class="items-center">
           <ul
-            class="nav-links hidden md:flex items-center gap-1 relative font-medium py-2"
+            class="nav-links flex items-center gap-1 relative font-medium py-2"
           >
             <li>
               <a href="#home" class="link font-serif font-semibold">Home</a>
@@ -175,25 +175,11 @@
           </ul>
 
           <!-- Hamburger Menu -->
-          <button
-            id="menu-toggle"
-            class="flex md:hidden items-center p-2 text-gray-50 hover:text-gray-900 focus:outline-none"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
+          <div class="hamburger-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </nav>
 
         <!-- Mobile Navigation -->
@@ -250,15 +236,15 @@
           </p>
           <div class="flex gap-3 mt-[-20px] text-white">
             <a href="https://www.instagram.com/auliadestiana__/" target="_blank"
-              ><i class="fab fa-instagram text-l"></i
+              ><i class="fa-brands fa-square-instagram text-xl"></i
             ></a>
             <a href="https://twitter.com/auliadestiana_" target="_blank"
-              ><i class="fab fa-whatsapp text-l"></i
+              ><i class="fa-brands fa-x-twitter text-lg"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/aulia-destiana-putri-751027304/"
               target="_blank"
-              ><i class="fa-brands fa-linkedin text-l"></i
+              ><i class="fa-brands fa-linkedin text-lg"></i
             ></a>
             <p class="font-light text-sm">| Social Media</p>
           </div>
@@ -341,9 +327,7 @@
 
     <!-- Skills Section -->
     <section id="skills" class="py-16 px-8 lg:px-32 bg-white">
-      <h2 class="text-3xl font-semibold text-[#803407] mb-6">
-        <span class="text-sm font-serif">my </span>Skills
-      </h2>
+      <h2 class="text-3xl font-semibold text-[#803407] mb-6">Skills</h2>
       <ul class="flex flex-wrap gap-6">
         <li class="flex items-center text-lg">
           <i class="fab fa-html5 text-3xl text-[#141414] mr-2"></i> HTML
@@ -370,7 +354,7 @@
       <h2
         class="text-3xl text-center font-semibold text-[#803407] bg-gradient-to-br from-[#803407] to-gray-200 bg-clip-text text-transparent mb-6"
       >
-        <span class="text-sm font-serif">my </span>Projects
+        <span class="text-sm fon">my </span>Projects
       </h2>
       <div class="grid gap-6 lg:flex lg:gap-6 overflow-x-auto">
         <!-- Project 1 -->
@@ -460,7 +444,7 @@
       // Mendapatkan elemen menu hamburger dan mobile menu
       const hamburgerMenu = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
-    
+
       // Event listener untuk tombol hamburger
       hamburgerMenu.addEventListener("click", () => {
         // Menambahkan atau menghapus kelas 'active' pada tombol hamburger
@@ -468,7 +452,6 @@
         // Menampilkan atau menyembunyikan menu mobile
         mobileMenu.classList.toggle("hidden");
       });
-  </script>
-
+    </script>
   </body>
 </html>
